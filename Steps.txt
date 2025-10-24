@@ -1,0 +1,19 @@
+1. Create a .github/workflows folder in your repo.
+2. Add a YAML file (e.g., ci.yaml).
+3. Define workflow trigger
+    on: [push, pull_request]
+4. Set up job name and environment
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+5. Add steps
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+        node-version: 18
+    - run: npm install
+    - run: npm test
+6. Commit and push the workflow file.
+7. Check “Actions” tab on GitHub for workflow runs and results.
